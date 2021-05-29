@@ -22,7 +22,7 @@ const Calendar = ({date})=> {
     }
     totalArr.push(eachArr);
     } 
-
+    
     const fixMonth =(year,month) => {
         if(month<0) return fixMonth(year-1, month+12)
         if (month>11) return fixMonth(year+1, month-12)

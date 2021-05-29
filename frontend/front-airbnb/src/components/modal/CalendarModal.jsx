@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { FaArrowLeft, FaArrowRight, FaPiggyBank} from "react-icons/fa";
 import Calendar from "../modal/Calendar";
 
-
 const CalendarModal = () => {
     const monthData = (modifier ) => {
         const now = new Date(Date.now())
