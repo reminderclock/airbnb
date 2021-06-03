@@ -61,8 +61,6 @@ const Calendar = ({date})=> {
             if(newArr[1].input === '날짜입력' || (makeData(outData) >= makeData(newArr[1].input))){
                 newArr[1].input = outData;
             }
-            console.log(outData)
-            console.log(newArr[1].input)
             newArr[0].input = inData;
             return newArr;
         })
@@ -104,7 +102,6 @@ const Calendar = ({date})=> {
         <thead><tr>{weekDay.map(e => <WeekTd>{e}</WeekTd>)}</tr></thead>
         <tbody>
             {totalArr.map((line, idx)=> <tr>{line.map((data, idx) => {
-                console.log(setLine(data), setCheckIn(), setLine(data) === setCheckIn(), setCheckOut());
             return <TableTd start={setCheckIn()} end={setCheckOut()} date={setLine(data)}onClick={()=>makeFormat(data)} 
             key={idx}>{data}</TableTd>
             })}</tr>)}
