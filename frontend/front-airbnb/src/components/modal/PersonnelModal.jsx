@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { FaPlus, FaMinus } from "react-icons/fa";
 
@@ -70,9 +70,10 @@ const PersonnelModal = () => {
                 </CntInfo>
         </ModalContainer>
     })
+
     return (
         <PersonnelModalWrapper onClick={e => e.stopPropagation()}>
-            {modalList}
+            {modalList} 
         </PersonnelModalWrapper>
     );
 }

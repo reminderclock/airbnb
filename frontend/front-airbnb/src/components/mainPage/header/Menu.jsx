@@ -16,7 +16,10 @@ const Menu = () => {
             name: '온라인 체험',
         },
     ]
-    const MenuLists = MenuData.map(menu => <MenuList key={menu.id}><MenuBtn>{menu.name}</MenuBtn></MenuList>)
+    const MenuLists = MenuData.map((menu,idx) => 
+        <MenuList className={`List${idx}`}key={menu.id}>
+        {menu.name}
+        </MenuList>)
     return (
         <MenuWrapper>
             {MenuLists}
@@ -38,7 +41,22 @@ color: #828282;
 `;
 
 const MenuList = styled.li`
-    padding: 0 20px;
+border: 0;
+outline: 0;
+font-size:30px;
+background-color:transparent;
+padding:0;
+color: #828282;
+&:hover {
+    text-decoration:underline;
+    color:black;
+}
+&:nth-child(1) {
+    text-decoration:underline;
+    color:black;
+}
+padding: 0 20px;
+    
 `;
 const MenuWrapper = styled.ul`
     display:flex;

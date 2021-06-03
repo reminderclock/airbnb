@@ -37,7 +37,7 @@ const SearchBar = () => {
         let newArr = [...periodInfo]
         if(newArr[0].input === '날짜입력' || newArr[1].input === '날짜입력') return false;
         else return true;
-      }
+    }
     return (
         <PostsContext.Provider value={{minVal, setMinVal, maxVal, setMaxVal, isCheck, periodInfo, setPeriodInfo, personnelInfo, setPersonnelInfo, priceInfo, setPriceInfo}}>
         <SearchBarWrapper ref={searchRef} onClick={() => setIsFocus(false)}>
@@ -50,7 +50,8 @@ const SearchBar = () => {
     );
 }
 const SearchBarWrapper = styled.div`
-position: relative;
+    border: 2px solid gray;
+    position: relative;
     border-radius:100px;
     background:white;
     display:flex;
