@@ -3,14 +3,14 @@ import SearchBar from '../searchBar/SearchBar';
 import MenuBar from './header/MenuBar';
 import styled from 'styled-components';
 
-const Header = ({scrollY}) => {
+const Header = ({setIsMain, isMain, scrollY}) => {
 console.log(scrollY>30)
     return (
         <HeaderBox>
         <HeaderWrapper scrollY={scrollY}>
             <MenuBar/>
-            <SearchBarBox scrollY={scrollY}>
-            <SearchBar scrollY={scrollY}/>
+            <SearchBarBox isMain={isMain} scrollY={scrollY}>
+            <SearchBar setIsMain={setIsMain} isMain={isMain} scrollY={scrollY}/>
             </SearchBarBox>
         </HeaderWrapper>
         </HeaderBox>
@@ -30,7 +30,10 @@ background-color: ${({scrollY})=> ((scrollY>20)? "white": "transparent")};
 
 const SearchBarBox = styled.div`
 position: absolute;
-top:${({scrollY})=> ((scrollY>20)? "0px": "200px")};
+top:${({scrollY, isMain})=> {
+    if(scrollY > 20 || !isMain) return "0px";
+    return "200px";
+}};
 width: 70%;
 left:15%;
 border: 1px solid blue;

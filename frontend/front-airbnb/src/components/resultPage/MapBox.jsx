@@ -1,11 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const MapBox = () => {
     return (
-        <div>
+        <MapBoxWrapper>
 
-        </div>
+        </MapBoxWrapper>
     );
 }
+const MapBoxWrapper = styled.div``;
 
 export default MapBox;

@@ -5,9 +5,9 @@ import Personnel from './Personnel';
 import Price from './Price';
 import SearchButton from './SearchButton';
 import useComponentVisible from "../modal/Modal"
-
+import { Link } from "react-router-dom";
 export const PostsContext = React.createContext();
-const SearchBar = () => {
+const SearchBar = ({isMain, setIsMain}) => {
     const periodData = [
         {
             id: 1,
@@ -31,13 +31,16 @@ const SearchBar = () => {
         if(newArr[0].input === '날짜입력' || newArr[1].input === '날짜입력') return false;
         else return true;
     }
+
     return (
         <PostsContext.Provider value={{personnelInfo, setPersonnelInfo, minVal, setMinVal, maxVal, setMaxVal, isCheck, periodInfo, setPeriodInfo, personnelInfo, setPersonnelInfo, priceInfo, setPriceInfo}}>
         <SearchBarWrapper ref={searchRef} onClick={() => setIsFocus(false)}>
             <Period/>
             <Price/>
             <Personnel/>
+            <Link to="/result" onClick={()=> setIsMain(false)}>
             <SearchButton setIsFocus={setIsFocus} isFocus={isFocus}/>
+            </Link>
         </SearchBarWrapper>
         </PostsContext.Provider>
     );
