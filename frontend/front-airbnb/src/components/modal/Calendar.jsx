@@ -104,7 +104,7 @@ const Calendar = ({date})=> {
         <thead><tr>{weekDay.map(e => <WeekTd>{e}</WeekTd>)}</tr></thead>
         <tbody>
             {totalArr.map((line, idx)=> <tr>{line.map((data, idx) => {
-                console.log(setLine(data), setCheckIn(), setLine(data) === setCheckIn(), setCheckOut());
+                // console.log(setLine(data), setCheckIn(), setLine(data) === setCheckIn(), setCheckOut());
             return <TableTd start={setCheckIn()} end={setCheckOut()} date={setLine(data)}onClick={()=>makeFormat(data)} 
             key={idx}>{data}</TableTd>
             })}</tr>)}
