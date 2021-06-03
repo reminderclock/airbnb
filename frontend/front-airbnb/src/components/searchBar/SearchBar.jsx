@@ -21,15 +21,8 @@ const SearchBar = () => {
         },
     ]
     const [periodInfo, setPeriodInfo] = useState(periodData);
-    const personelData = [
-        {
-            id: 1,
-            name: '인원',
-            input: ['게스트 추가']
-        },
-    ];
     const [priceInfo, setPriceInfo] = useState(['금액대 설정']);
-    const [personnelInfo, setPersonnelInfo] = useState(personelData);
+    const [personnelInfo, setPersonnelInfo] = useState('게스트 추가');
     const {searchRef, isFocus, setIsFocus} = useComponentVisible(true);
     const [minVal, setMinVal] = useState(10000);
     const [maxVal, setMaxVal] = useState(14000);
@@ -39,7 +32,7 @@ const SearchBar = () => {
         else return true;
     }
     return (
-        <PostsContext.Provider value={{minVal, setMinVal, maxVal, setMaxVal, isCheck, periodInfo, setPeriodInfo, personnelInfo, setPersonnelInfo, priceInfo, setPriceInfo}}>
+        <PostsContext.Provider value={{personnelInfo, setPersonnelInfo, minVal, setMinVal, maxVal, setMaxVal, isCheck, periodInfo, setPeriodInfo, personnelInfo, setPersonnelInfo, priceInfo, setPriceInfo}}>
         <SearchBarWrapper ref={searchRef} onClick={() => setIsFocus(false)}>
             <Period/>
             <Price/>
