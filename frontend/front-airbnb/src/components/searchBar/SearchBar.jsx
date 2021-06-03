@@ -1,10 +1,9 @@
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import Period from './Period';
 import Personnel from './Personnel';
 import Price from './Price';
 import SearchButton from './SearchButton';
-import {ResultContextProvider} from '../../Context';
 import useComponentVisible from "../modal/Modal"
 
 export const PostsContext = React.createContext();

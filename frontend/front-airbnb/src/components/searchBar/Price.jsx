@@ -1,4 +1,4 @@
-import React, { useContext ,useEffect} from 'react';
+import React, { useContext} from 'react';
 import styled from 'styled-components';
 import PriceModal from '../modal/PriceModal';
 import useComponentVisible from "../modal/Modal"
@@ -6,7 +6,7 @@ import { PostsContext } from '../searchBar/SearchBar';
 
 
 const Price = () => {
-    const {isCheck, minVal, maxVal, periodInfo, setPeriodInfo} = useContext(PostsContext);
+    const {isCheck, minVal, maxVal} = useContext(PostsContext);
     const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(true);
     const numToCash = (num) => {
         return num.toLocaleString( 'ko-KR', { style: 'decimal', deciam: 'KRW' } );
