@@ -7,13 +7,13 @@ import { PostsContext } from './SearchBar';
 const Personnel = () => {
     const {personnelInfo, setpersonnelInfo} = useContext(PostsContext);
     const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(true);
-    let personnelList = personnelInfo.map((e, idx) => {
-        return <CheckBox key={idx}><Title>{e.name}</Title><View>{e.input}</View></CheckBox>
-    })
     return (
         <PersonnelWrapper ref={ref}>
             <PersonnelBtn onClick={() => setIsComponentVisible(!isComponentVisible)}>
-                {personnelList}
+                <CheckBox>
+                    <Title>인원</Title>
+                    <View>{personnelInfo}</View>
+                </CheckBox>
                 {!isComponentVisible && <PersonnelModal/>}
             </PersonnelBtn>
         </PersonnelWrapper>

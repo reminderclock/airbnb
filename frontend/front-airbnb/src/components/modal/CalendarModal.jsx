@@ -24,7 +24,6 @@ const CalendarModal = () => {
 }
 
 
-const DayWrapper = styled.div``;
 
 
 const PreBtn = styled.button`

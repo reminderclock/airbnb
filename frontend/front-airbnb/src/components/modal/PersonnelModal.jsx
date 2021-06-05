@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import styled from 'styled-components';
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { PostsContext } from '../searchBar/SearchBar';
 
 const PersonnelModal = () => {
+    const {personnelInfo, setPersonnelInfo} = useContext(PostsContext);
     const guestData = [
         {
             id: 1,
@@ -24,8 +26,8 @@ const PersonnelModal = () => {
         },
     ]
     const increaseCnt = (id) => {
-        setPersonnelInfo(
-            personnelInfo.map(e => {
+        setPersonnelDatailInfo(
+            personnelDatailInfo.map(e => {
                 if(e.id === id || ((e.id===1) && (e.input === 0))) 
                 return {
                     ...e,
@@ -36,8 +38,8 @@ const PersonnelModal = () => {
         )
     }
     const decreaseCnt = (id) => {
-        setPersonnelInfo(
-            personnelInfo.map(e => {
+        setPersonnelDatailInfo(
+            personnelDatailInfo.map(e => {
                 if(e.id === id) 
                 return {
                     ...e,
@@ -48,18 +50,24 @@ const PersonnelModal = () => {
         )
     }
     const checkDecrease = (idx) => {
-        let newArr = [...personnelInfo];
+        let newArr = [...personnelDatailInfo];
         if(newArr[idx].input !== 0) return false;
         else return true;
     }
     const checkIncrease = (idx) => {
-        let newArr = [...personnelInfo];
+        let newArr = [...personnelDatailInfo];
         if(newArr[idx].input === 8) return true;
         else return false
     }
-    const [personnelInfo, setPersonnelInfo] = useState(guestData);
-    console.log(personnelInfo)
-    const modalList = personnelInfo.map((e, idx) => {
+    const [personnelDatailInfo, setPersonnelDatailInfo] = useState(guestData);
+    console.log(personnelDatailInfo)
+    useEffect(() => {
+        let newArr = [...personnelDatailInfo];
+        let TotalPersonnel = newArr[0].input + newArr[1].input + newArr[2].input;
+        if(TotalPersonnel === 0) return setPersonnelInfo('게스트 추가')
+        setPersonnelInfo(TotalPersonnel)
+      },[personnelDatailInfo]);
+    const modalList = personnelDatailInfo.map((e, idx) => {
         return <ModalContainer onClick={e => e.stopPropagation()}>
                 <Title>{e.title}</Title>
                 <Detail>{e.detail}</Detail>
@@ -70,9 +78,10 @@ const PersonnelModal = () => {
                 </CntInfo>
         </ModalContainer>
     })
+
     return (
         <PersonnelModalWrapper onClick={e => e.stopPropagation()}>
-            {modalList}
+            {modalList} 
         </PersonnelModalWrapper>
     );
 }
