@@ -1,6 +1,9 @@
 import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+html {
+    overflow-y: scroll;
+}
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +15,8 @@ body {
     height:100%;
 }
 button {
-    border:0;
-    outline: 0;
+    /* border:0; */
+    /* outline: 0; */
     background-color: transparent;
 }
 table {

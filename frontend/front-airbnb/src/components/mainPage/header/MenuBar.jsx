@@ -4,20 +4,20 @@ import Logo from './Logo';
 import Menu from './Menu';
 import MyPage from './MyPage';
 
-const Header = () => {
+const MenuBar = () => {
     return (
-        <HeaderWrapper>
+        <MenuBarWrapper>
             <Logo/>
             <Menu/>
             <MyPage/>
-        </HeaderWrapper>
+        </MenuBarWrapper>
     );
 }
 
-const HeaderWrapper = styled.div`
+const MenuBarWrapper = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
 `;
 
-export default Header;
+export default MenuBar;
