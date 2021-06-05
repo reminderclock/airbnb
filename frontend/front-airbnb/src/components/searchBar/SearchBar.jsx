@@ -7,7 +7,7 @@ import SearchButton from './SearchButton';
 import useComponentVisible from "../modal/Modal"
 import { Link } from "react-router-dom";
 export const PostsContext = React.createContext();
-const SearchBar = ({isMain, setIsMain}) => {
+const SearchBar = ({isMain, setIsMain, scrollY}) => {
     const periodData = [
         {
             id: 1,
@@ -31,10 +31,20 @@ const SearchBar = ({isMain, setIsMain}) => {
         if(newArr[0].input === '날짜입력' || newArr[1].input === '날짜입력') return false;
         else return true;
     }
+    const numToCash = (num) => {
+        return num.toLocaleString( 'ko-KR', { style: 'currency', currency: 'KRW' } );
+    } 
+    const createTotal = () => {
+        let newArr = [...periodInfo];
+        return `${newArr[0].input}-${newArr[1].input}${numToCash(minVal)}${numToCash(maxVal)}게스트${personnelInfo}명`
+    }
 
     return (
         <PostsContext.Provider value={{personnelInfo, setPersonnelInfo, minVal, setMinVal, maxVal, setMaxVal, isCheck, periodInfo, setPeriodInfo, personnelInfo, setPersonnelInfo, priceInfo, setPriceInfo}}>
         <SearchBarWrapper ref={searchRef} onClick={() => setIsFocus(false)}>
+            <Box>
+            {!isMain && <Create scrollY={scrollY}>{createTotal()}</Create>}
+            </Box>
             <Period/>
             <Price/>
             <Personnel/>
@@ -45,6 +55,18 @@ const SearchBar = ({isMain, setIsMain}) => {
         </PostsContext.Provider>
     );
 }
+const Box = styled.div`
+`;
+const Create = styled.div`
+color:${({scrollY})=> {
+    console.log(scrollY)
+    if(scrollY > 20) return "transparent";
+}};
+position: absolute;
+top:185%;
+left:-47%;
+font-size:25px;
+`;
 const SearchBarWrapper = styled.div`
     border: 2px solid gray;
     position: relative;

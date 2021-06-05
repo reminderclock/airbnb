@@ -20,6 +20,7 @@ const Menu = () => {
         <MenuList className={`List${idx}`}key={menu.id}>
         {menu.name}
         </MenuList>)
+        
     return (
         <MenuWrapper>
             {MenuLists}

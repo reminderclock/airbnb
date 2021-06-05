@@ -10,7 +10,7 @@ console.log(scrollY>30)
         <HeaderWrapper scrollY={scrollY}>
             <MenuBar/>
             <SearchBarBox isMain={isMain} scrollY={scrollY}>
-            <SearchBar setIsMain={setIsMain} isMain={isMain} scrollY={scrollY}/>
+            <SearchBar scrollY={scrollY} setIsMain={setIsMain} isMain={isMain} scrollY={scrollY}/>
             </SearchBarBox>
         </HeaderWrapper>
         </HeaderBox>
@@ -19,10 +19,10 @@ console.log(scrollY>30)
 const HeaderBox = styled.div`
 width: 100%;
 position: fixed;
+z-index:3;
 `;
 const HeaderWrapper = styled.div`
 position: relative;
-border: 3px solid red;
 padding: 50px 80px;
 background-color: ${({scrollY})=> ((scrollY>20)? "white": "transparent")};
 
@@ -36,7 +36,6 @@ top:${({scrollY, isMain})=> {
 }};
 width: 70%;
 left:15%;
-border: 1px solid blue;
 `;
 
 export default Header;

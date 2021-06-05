@@ -10,32 +10,28 @@ const ResultPage = ({isMain}) => {
     useEffect(() => {
       loadData();
     },[isMain]);
-    // useEffect(() => {
-        
-    //   },[roomInfo]);
     const loadData = () => {
         axios.get(API_URL).then((response) => {
             console.log(response.data.rooms.map(e=> e.location))
         setRoomInfo(response.data);
-        // getData(response.data);
         })
     }
-
-    // const periodList = periodInfo.map((e, idx) => {
-    //     return <CheckBox key={idx}><Title>{e.name}</Title><View>{e.input}</View></CheckBox>
-    // })
     return (
         <ResultPageWrapper>
             <ResultBox roomInfo={roomInfo}/>
-            <MapBox/>
+            <MapBox roomInfo={roomInfo}/>
         </ResultPageWrapper>
     );
 }
 
 const ResultPageWrapper = styled.div`
-position: absolute;
+/* position: absolute; */
+z-index: -1;
 top:15%;
-/* margin-top: 100px; */
+width: 100%;
+padding: 30px;
+padding-top: 200px;
+/* border: 2px solid red; */
 display: flex;
 justify-content: space-between;
 `

@@ -78,6 +78,7 @@ const BarChart = ({chartInfo}) => {
 }
 const BarChartWrapper = styled.div`
 top:30%;
+left:-3%;
 position: absolute;
 `;
 
