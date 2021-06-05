@@ -117,7 +117,7 @@ left: 10%;
 const Input = styled.input`
   -webkit-appearance: none;
   pointer-events: none;
-  /* top: 20%; */
+  top: 80%;
   position: absolute;
   height: 0;
   width: 400px;
@@ -151,12 +151,13 @@ const RealSlider = styled.div`
 `;
 
 const AbsoluteBox = styled.div`
+  /* top:10%; */
   position: absolute;
 `;
 const SliderTrack = styled(AbsoluteBox)`
   border-radius: 3px;
   height: 5px;
-  background-color: #ced4da;
+  background-color: transparent;
   width: 400px;
   z-index: 4;
 `;
@@ -166,7 +167,7 @@ const SliderRange = styled(AbsoluteBox)`
   opacity: 0.25;
   z-index: 5;
   height: 160px;
-  top:-160px;
+  top:-100px;
   position: absolute;
   /* left: 30%; */
   `;
